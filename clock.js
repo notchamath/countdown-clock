@@ -1,4 +1,6 @@
-//Controller
+//**Controller**
+
+//get the user's input when Start button is clicked
 const getInput = () => {
 
     document.querySelector('#submitBtn').disabled = true;
@@ -13,59 +15,97 @@ const getInput = () => {
 
 }
 
+//Refresh page when error message is ok'ed or when Reset button is clicked
+const refresh = () => {
+    window.location.reload(); 
+}
+
+
+
+//**Model**
+
+//check if inputs are valid
 const validate = (days, hours, mins, secs) => {
 
-    if(days<0 || hours<0 || mins<0 || secs<0) alert('Values cannot be negative');
-    else if(days===0 && hours===0 && mins===0 && secs===0) alert('Try a numbers above 0');
+        //inputs must be positive values
+    if(days<0 || hours<0 || mins<0 || secs<0) {
+
+        alert('Values cannot be negative'); 
+        refresh();
+
+        //all inputs cannot be 0
+    } else if(days===0 && hours===0 && mins===0 && secs===0){
+
+        alert('Try a numbers above 0');
+        refresh();
+
+        //no decimals
+    } else if(!Number.isInteger(days)||!Number.isInteger(hours) ||!Number.isInteger(mins)||!Number.isInteger(secs)){
+       
+        alert('No decimals please!');
+        refresh();        
+
+    }   //if the value is a positive integer, proceed
     else {
+
         updateClock(days, hours, mins, secs);
         calculateCount(days, hours, mins, secs);
     }
 }
 
+//convert all values into seconds and count down in intervals of 1 sec
 const calculateCount = (days, hours, mins, secs) => {
 
     let totalSecs = secs + (mins*60) + (hours*60*60) + (days*60*60*24);
 
     const clearInt = setInterval(() => { 
-
+        
         totalSecs--;
-
-        if(totalSecs===0) clearInterval(clearInt);
         countDown(totalSecs);
+        if(totalSecs===0) clearInterval(clearInt);
     
     },"1000", totalSecs);
 
 }
 
+//after every second, re-evaluate the display
 const countDown = (runningTotal) => {
 
-    secsLeft = Math.floor(runningTotal%60);
+    let secsLeft = Math.floor(runningTotal%60);
     runningTotal -= secsLeft;
 
-    daysLeft = Math.floor(runningTotal/86400);
+    let daysLeft = Math.floor(runningTotal/86400);
     runningTotal -= daysLeft*86400;
 
-    hoursLeft = Math.floor(runningTotal/3600);
+    let hoursLeft = Math.floor(runningTotal/3600);
     runningTotal -= hoursLeft*3600;
 
-    minsLeft = Math.floor(runningTotal/60);
+    let minsLeft = Math.floor(runningTotal/60);
     
 
     updateClock(daysLeft, hoursLeft, minsLeft, secsLeft);    
 }
 
 
-//View
+
+//**View**
+
+//update the display
 const updateClock = (daysLeft, hoursLeft, minsLeft, secsLeft) => {
 
-    let clockDis = document.querySelector('#clock');
+    let clockDisplay = document.querySelector('#clock');
     
-    clockDis.innerText = `${daysLeft} Days ${hoursLeft} Hrs ${minsLeft} Mins ${secsLeft} Secs left`;
+    clockDisplay.innerText = `${daysLeft} Days ${hoursLeft} Hrs ${minsLeft} Mins ${secsLeft} Secs left`;
 
+    //End message alert is delayed 500ms so display can show 00:00:00:00
     if(daysLeft===0 && hoursLeft===0 && minsLeft===0 && secsLeft===0){
+
         setTimeout(() => {
+
             alert('Countdown Done!!!');
+            refresh();
+
         }, '500'); 
+
     }
 }
