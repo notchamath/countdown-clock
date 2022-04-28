@@ -1,5 +1,8 @@
 //Controller
 const getInput = () => {
+
+    document.querySelector('#submitBtn').disabled = true;
+
     const days = +document.querySelector('#days').value;
     const hours = +document.querySelector('#hours').value;
     const mins = +document.querySelector('#mins').value;
@@ -21,15 +24,15 @@ const calculateCount = (days, hours, mins, secs) => {
 
     let totalSecs = secs + (mins*60) + (hours*60*60) + (days*60*60*24);
 
-    while(totalSecs!==0){
+    const clearInt = setInterval(() => { 
 
         totalSecs--;
 
-        setInterval(() => {
-            countDown(totalSecs);
-        },"1000", totalSecs)
-    }
+        if(totalSecs===0) clearInterval(clearInt);
+        countDown(totalSecs);
     
+    },"1000", totalSecs);
+
 }
 
 const countDown = (runningTotal) => {
@@ -46,20 +49,14 @@ const countDown = (runningTotal) => {
     minsLeft = Math.floor(runningTotal/60);
     
 
-
-    return updateClock(daysLeft,hoursLeft,minsLeft,secsLeft);
-    
+    return updateClock(daysLeft, hoursLeft, minsLeft, secsLeft);    
 }
+
 
 //View
-const updateClock = (daysLeft,hoursLeft,minsLeft,secsLeft) => {
-    console.log(daysLeft,hoursLeft,minsLeft,secsLeft)
-}
+const updateClock = (daysLeft, hoursLeft, minsLeft, secsLeft) => {
 
-const render = () => {
     let clockDis = document.querySelector('#clock');
-        
-    clockDis.innerText = '00:00:00'
+    
+    clockDis.innerText = `${daysLeft} Days ${hoursLeft} Hrs ${minsLeft} Mins ${secsLeft} Secs left`;
 }
-
-render();
