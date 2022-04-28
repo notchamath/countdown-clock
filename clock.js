@@ -17,7 +17,10 @@ const validate = (days, hours, mins, secs) => {
 
     if(days<0 || hours<0 || mins<0 || secs<0) alert('Values cannot be negative');
     else if(days===0 && hours===0 && mins===0 && secs===0) alert('Try a numbers above 0');
-    else calculateCount(days, hours, mins, secs);
+    else {
+        updateClock(days, hours, mins, secs);
+        calculateCount(days, hours, mins, secs);
+    }
 }
 
 const calculateCount = (days, hours, mins, secs) => {
@@ -49,7 +52,7 @@ const countDown = (runningTotal) => {
     minsLeft = Math.floor(runningTotal/60);
     
 
-    return updateClock(daysLeft, hoursLeft, minsLeft, secsLeft);    
+    updateClock(daysLeft, hoursLeft, minsLeft, secsLeft);    
 }
 
 
@@ -59,4 +62,10 @@ const updateClock = (daysLeft, hoursLeft, minsLeft, secsLeft) => {
     let clockDis = document.querySelector('#clock');
     
     clockDis.innerText = `${daysLeft} Days ${hoursLeft} Hrs ${minsLeft} Mins ${secsLeft} Secs left`;
+
+    if(daysLeft===0 && hoursLeft===0 && minsLeft===0 && secsLeft===0){
+        setTimeout(() => {
+            alert('Countdown Done!!!');
+        }, '500'); 
+    }
 }
