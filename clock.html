@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="clock.css">
+
+    <title>Countdown Clock</title>
+</head>
+<body>
+    
+    <main>
+        <h2>Enter Values to Start Counter:</h2>
+
+        <section id="inputs">
+            <label for="days">Days:</label>
+            <input type="number" name="days" id="days" min="0">
+                       
+            <label for="hours">Hours:</label>
+            <input type="number" name="hours" id="hours" min="0">
+                       
+            <label for="mins">Minutes:</label>
+            <input type="number" name="mins" id="mins" min="0">
+                       
+            <label for="secs">Seconds:</label>
+            <input type="number" name="secs" id="secs" min="0">
+                       
+
+            <button id="submitBtn" onclick="getInput()">Start Counter</button>
+        </section>
+
+        <section id="displayClock">
+            <h1 id="clock"></h1>
+        </section>
+
+ 
+    </main>
+    
+
+    <script src="clock.js"></script>
+</body>
+</html>
