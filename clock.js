@@ -90,12 +90,21 @@ const countDown = (runningTotal) => {
 
 //**View**
 
-//update the display
+//update each corresponding display
 const updateClock = (daysLeft, hoursLeft, minsLeft, secsLeft) => {
 
-    let clockDisplay = document.querySelector('#clock');
+    let clockDays = document.querySelector('#clock-days');
+    let clockHours = document.querySelector('#clock-hours');
+    let clockMins = document.querySelector('#clock-mins');
+    let clockSecs = document.querySelector('#clock-secs');
+    let Displayclock = document.querySelector('#displayClock');
     
-    clockDisplay.innerText = `${daysLeft} Days ${hoursLeft} Hrs ${minsLeft} Mins ${secsLeft} Secs left`;
+    Displayclock.style = 'Display: block';
+    clockDays.innerText = daysLeft;
+    clockHours.innerText = hoursLeft;
+    clockMins.innerText = minsLeft;
+    clockSecs.innerText = secsLeft;
+
 
     //End message alert is delayed 500ms so display can show 00:00:00:00
     if(daysLeft===0 && hoursLeft===0 && minsLeft===0 && secsLeft===0){

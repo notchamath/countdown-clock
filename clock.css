@@ -1,37 +1,46 @@
+
+/* setup starting values */
 body{
     background-color: #FFF5E4;
     color: #EE6983;
     font-family: 'Poppins', sans-serif;
 }
 
+/* middle items in the main container */
 main{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Title styles */
 h2{
     font-size: 2.5rem;
     font-style: italic;
     color: #850E35;
 }
 
+/* Input container set to flex */
 #inputs{
     display: flex;
     gap: 2rem;
+    margin-bottom: 5rem;
 }
 
+/* Make label appear on top of each input */
 .input-control{
     display: flex;
     flex-direction: column;
     gap: 0;
 }
 
+/* label styles */
 label{
     font-size: 1.5rem;
     font-weight: 700;
 }
 
+/* inputs style */
 input{
     outline: none;
     font-size: 1.5rem;
@@ -40,11 +49,13 @@ input{
     border: .5px solid #FFC4C4;
 }
 
+/* make 2 buttons appear next to eachother */
 .btns{
     display: flex;
     gap: 5px;
 }
 
+/* buttons styles */
 #submitBtn, #resetBtn{
     align-self: flex-end;
     flex-shrink: 0;
@@ -56,18 +67,48 @@ input{
     border: 4px solid #850E35;
 }
 
+/* button styles for when they are clicked */
 #submitBtn:active, #resetBtn:active{
     color: #F5EDDC;
     background-color: #850E35;
 }
 
-h1{
-    font-size: 5rem;
-    color: #aed325;
+/* styles for submit button when its disabled */
+#submitBtn:disabled{
+    color: white;
+    background-color: gainsboro;
+    border: 4px solid gainsboro;
 }
 
+/* hide clock when there are no values to display */
+#displayClock{
+    display: none;
+}
+
+/* Make all text appear on same line */
+#clock{
+    display: flex;
+    align-items: flex-end;
+    font-size: 3rem;
+    color: #10110f;
+}
+
+/* Styles for numbers on the clock */
+#clock div span{
+    font-size: 8rem;
+    color: #FFC4C4;
+    padding-left: 2rem;
+}
+
+
+/* Media Queries to make the app responsive */
 @media (max-width: 1480px) {
     #inputs{
         flex-direction: column;
+    }
+
+    #inputs, #clock{
+        flex-direction: column;
+        align-items: center;
     }
 }
