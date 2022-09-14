@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="clock.css">
 
     <title>Countdown Clock</title>
@@ -15,28 +18,37 @@
         <h2>Enter Values to Start Countdown:</h2>
 
         <section id="inputs">
-            <label for="days">Days:</label>
-            <input type="number" name="days" id="days" min="0">
-                       
-            <label for="hours">Hours:</label>
-            <input type="number" name="hours" id="hours" min="0">
-                       
-            <label for="mins">Minutes:</label>
-            <input type="number" name="mins" id="mins" min="0">
-                       
-            <label for="secs">Seconds:</label>
-            <input type="number" name="secs" id="secs" min="0">
-                       
 
-            <button id="submitBtn" onclick="getInput()">Start Counter</button>
-            <button id="resetBtn" onclick="refresh()">Reset</button>
+            <div class="input-control">
+                <label for="days">Days:</label>
+                <input type="number" name="days" id="days" min="0">
+            </div>
+                  
+            <div class="input-control">
+                <label for="hours">Hours:</label>
+                <input type="number" name="hours" id="hours" min="0">
+            </div>
+
+            <div class="input-control">
+                <label for="mins">Minutes:</label>
+                <input type="number" name="mins" id="mins" min="0">
+            </div>
+                       
+            <div class="input-control">
+                <label for="secs">Seconds:</label>
+                <input type="number" name="secs" id="secs" min="0">
+            </div>
+                       
+            <div class="btns">
+                <button id="submitBtn" onclick="getInput()">Start Counter</button>
+                <button id="resetBtn" onclick="refresh()">Reset</button>
+            </div>
         </section>
 
         <section id="displayClock">
             <h1 id="clock"></h1>
         </section>
 
- 
     </main>
     
 

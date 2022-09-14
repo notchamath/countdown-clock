@@ -1,3 +1,73 @@
 body{
-    background-color: rgb(243, 248, 253);
+    background-color: #FFF5E4;
+    color: #EE6983;
+    font-family: 'Poppins', sans-serif;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2{
+    font-size: 2.5rem;
+    font-style: italic;
+    color: #850E35;
+}
+
+#inputs{
+    display: flex;
+    gap: 2rem;
+}
+
+.input-control{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+label{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+input{
+    outline: none;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    padding: .5rem;
+    border: .5px solid #FFC4C4;
+}
+
+.btns{
+    display: flex;
+    gap: 5px;
+}
+
+#submitBtn, #resetBtn{
+    align-self: flex-end;
+    flex-shrink: 0;
+    color: #850E35;
+    background-color: #F5EDDC;
+    padding: .5rem;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    border: 4px solid #850E35;
+}
+
+#submitBtn:active, #resetBtn:active{
+    color: #F5EDDC;
+    background-color: #850E35;
+}
+
+h1{
+    font-size: 5rem;
+    color: #aed325;
+}
+
+@media (max-width: 1480px) {
+    #inputs{
+        flex-direction: column;
+    }
 }
