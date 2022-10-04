@@ -17,6 +17,7 @@
     <main>
         <h2>Enter Values to Start Countdown:</h2>
 
+        <!-- inputs section -->
         <section id="inputs">
 
             <div class="input-control">
@@ -38,13 +39,15 @@
                 <label for="secs">Seconds:</label>
                 <input type="number" name="secs" id="secs" min="0">
             </div>
-                       
+            
+            <!-- Start and Reset buttons -->
             <div class="btns">
                 <button id="submitBtn" onclick="getInput()">Start Counter</button>
                 <button id="resetBtn" onclick="refresh()">Reset</button>
             </div>
         </section>
 
+        <!-- display section -->
         <section id="displayClock">
             <div id="clock">
                 <div><span id="clock-days"></span> Days</div>
